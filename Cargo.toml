@@ -1,0 +1,23 @@
+[package]
+name = "systeminfo"
+edition = "2021"
+version = "3.19.0"
+license = "MIT OR Apache-2.0"
+publish = false
+
+[features]
+cli = [
+    "dep:serde_json"
+]
+
+[dependencies]
+log = "0.4.21"
+serde = { version = "1.0.188", features = ["derive"] }
+serde_json = { version = "1.0.107", optional = true }
+walkdir = "2.4.0"
+
+
+[[bin]]
+name = "systeminfo"
+path = "src/main.rs"
+required-features = ["cli"]
